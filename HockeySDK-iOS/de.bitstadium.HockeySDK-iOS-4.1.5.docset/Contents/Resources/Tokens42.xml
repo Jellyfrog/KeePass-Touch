@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/BITEnvironment.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/BITEnvironment</TokenIdentifier>
+			<Abstract type="html">HockeySDK App environment</Abstract>
+			<DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+			
+			<NodeRef refid="42"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITEnvironmentAppStore</TokenIdentifier>
+            <Abstract type="html">App has been downloaded from the AppStore
+   </Abstract>
+            <Declaration>BITEnvironmentAppStore</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="42"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITEnvironmentTestFlight</TokenIdentifier>
+            <Abstract type="html">App has been downloaded from TestFlight
+   </Abstract>
+            <Declaration>BITEnvironmentTestFlight</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="42"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITEnvironmentOther</TokenIdentifier>
+            <Abstract type="html">App has been installed by some other mechanism.
+This could be Ad-Hoc, Enterprise, etc.
+   </Abstract>
+            <Declaration>BITEnvironmentOther</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="42"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

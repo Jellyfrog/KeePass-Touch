@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/BITChannel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/BITChannel</TokenIdentifier>
+			<Abstract type="html">Items get queued before they are persisted and sent out as a batch. This class managed the queue, and forwards the batch
+to the persistence layer once the max batch count has been reached.</Abstract>
+			<DeclaredIn>BITChannel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="9"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITChannel/initWithTelemetryContext:persistence:</TokenIdentifier>
+			<Abstract type="html">Initializes a new BITChannel instance.</Abstract>
+			<DeclaredIn>BITChannel.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithTelemetryContext:(BITTelemetryContext *)telemetryContext persistence:(BITPersistence *)persistence</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>telemetryContext</Name>
+					<Abstract type="html">the context used to add context values to the metrics payload</Abstract>
+				</Parameter><Parameter>
+					<Name>persistence</Name>
+					<Abstract type="html">the persistence used to save metrics after the queue gets flushed</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">the telemetry context</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTelemetryContext:persistence:</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITChannel/enqueueTelemetryItem:</TokenIdentifier>
+			<Abstract type="html">Reset BITSafeJsonEventsString so we can start appending JSON dictionaries.</Abstract>
+			<DeclaredIn>BITChannel.h</DeclaredIn>
+			
+			<Declaration>- (void)enqueueTelemetryItem:(BITTelemetryData *)item</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>item</Name>
+					<Abstract type="html">The telemetry object, which should be processed</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/enqueueTelemetryItem:</Anchor>
+            <NodeRef refid="9"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

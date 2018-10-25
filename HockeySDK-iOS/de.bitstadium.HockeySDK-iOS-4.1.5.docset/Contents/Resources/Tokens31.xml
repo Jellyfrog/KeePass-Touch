@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/BITFeedbackManagerDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/BITFeedbackManagerDelegate</TokenIdentifier>
+			<Abstract type="html">	Delegate protocol which is notified about changes in the feedbackManager
+@TODO
+* move shouldShowUpdateAlert from feedbackManager here</Abstract>
+			<DeclaredIn>BITFeedbackManagerDelegate.h</DeclaredIn>
+            
+			
+			<NodeRef refid="31"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BITFeedbackManagerDelegate/allowAutomaticFetchingForNewFeedbackForManager:</TokenIdentifier>
+			<Abstract type="html">Can be implemented to control wether the feedback manager should automatically
+fetch for new messages on app startup or when becoming active.</Abstract>
+			<DeclaredIn>BITFeedbackManagerDelegate.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)allowAutomaticFetchingForNewFeedbackForManager:(BITFeedbackManager *)feedbackManager</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>feedbackManager</Name>
+					<Abstract type="html">The feedbackManager which did detect the new messages</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/allowAutomaticFetchingForNewFeedbackForManager:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BITFeedbackManagerDelegate/feedbackManagerDidReceiveNewFeedback:</TokenIdentifier>
+			<Abstract type="html">	can be implemented to know when new feedback from the server arrived</Abstract>
+			<DeclaredIn>BITFeedbackManagerDelegate.h</DeclaredIn>
+			
+			<Declaration>- (void)feedbackManagerDidReceiveNewFeedback:(BITFeedbackManager *)feedbackManager</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>feedbackManager</Name>
+					<Abstract type="html">The feedbackManager which did detect the new messages</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/feedbackManagerDidReceiveNewFeedback:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BITFeedbackManagerDelegate/preparedItemsForFeedbackManager:</TokenIdentifier>
+			<Abstract type="html">This optional method can be implemented to provide items to prefill
+the FeedbackComposeMessage user interface with the given items.</Abstract>
+			<DeclaredIn>BITFeedbackManagerDelegate.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/BITFeedbackComposeViewController/prepareWithItems:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (nullable NSArray *)preparedItemsForFeedbackManager:(BITFeedbackManager *)feedbackManager</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>feedbackManager</Name>
+					<Abstract type="html">The BITFeedbackManager instance that will handle sending the feedback.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An array containing the items to be attached to the feedback message</Abstract></ReturnValue>
+			<Anchor>//api/name/preparedItemsForFeedbackManager:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/BITFeedbackManagerDelegate/forceNewFeedbackThreadForFeedbackManager:</TokenIdentifier>
+			<Abstract type="html">Indicates if a new thread should be created for each new feedback message</Abstract>
+			<DeclaredIn>BITFeedbackManagerDelegate.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)forceNewFeedbackThreadForFeedbackManager:(BITFeedbackManager *)feedbackManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">A BOOL indicating if each feedback message should be sent as a new thread.</Abstract></ReturnValue>
+			<Anchor>//api/name/forceNewFeedbackThreadForFeedbackManager:</Anchor>
+            <NodeRef refid="31"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

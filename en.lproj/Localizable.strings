@@ -1,0 +1,212 @@
+﻿/*
+ * Copyright 2011 Jason Rush and John Flanagan. All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"Files" = "Files";
+"Databases" = "Databases";
+"Key File" = "Key File";
+"Key Files" = "Key Files";
+"Groups" = "Groups";
+"Entries" = "Entries";
+"Group" = "Group";
+"Entry" = "Entry";
+"New Database" = "New Database";
+"New Group" = "New Group";
+"New Entry" = "New Entry";
+"Edit Group" = "Edit Group";
+"Edit Entry" = "Edit Entry";
+"Title" = "Title";
+"Image" = "Image";
+"Images" = "Images";
+"Username" = "Username";
+"Password" = "Password";
+"Confirm Password" = "Confirm Password";
+"Expiration Date" = "Expiration Date";
+"URL" = "URL";
+"Comments" = "Comments";
+"OK" = "OK";
+"Cancel" = "Cancel";
+"Add" = "Add";
+"Search" = "Search";
+"Help" = "Help";
+"Version 1.x" = "Version 1.x";
+"Version 2.x" = "Version 2.x";
+"None" = "None";
+"Name" = "Name";
+"Value" = "Value";
+"Delete" = "Delete";
+"Move" = "Move";
+"Rename" = "Rename";
+"Database Name" = "Database Name";
+"Last Modified" = "Last Modified";
+"Copied" = "Copied";
+"In Memory Protection" = "In Memory Protection";
+"Custom Field" = "Custom Field";
+"Custom Fields" = "Custom Fields";
+"Add new…" = "Add new…";
+"Choose Group" = "Choose Group";
+"Backup" = "Backup";
+"Choose" = "Choose";
+"Canceled" = "Canceled";
+
+
+// Dropbox Sync
+"No Folders or Files in here" = "No Folders or Files in here";
+"Choose one of the following options" = "Choose one of the following options";
+"Local" = "Local";
+"Don't Auto Sync" = "Don't Auto Sync";
+"If you choose Auto Sync the app will sync with the chosen Dropbox folder on each startup. Should auto-sync with the chosen folder be enabled? You can reset this in the settings." = "If you choose Auto Sync the app will sync with the chosen Dropbox folder on each startup. Should auto-sync with the chosen folder be enabled? You can reset this in the settings.";
+"Reset Dropbox Settings" = "Reset Dropbox Settings";
+"Your dropbox file is newer than the local file.\n Which one do you want to keep and use?" = "Your dropbox file is newer than the local file.\n Which one do you want to keep and use?";
+"Your local file is newer than the dropbox file.\n Which one do you want to keep and use?" = "Your local file is newer than the dropbox file.\n Which one do you want to keep and use?";
+
+"Newer Version" = "Newer Version";
+"Older Version" = "Older Version";
+
+"Invalid database row" = "Invalid database row";
+
+
+// FTP Connect & Local Sync
+"Connect" = "Connect";
+"FTP Login Data" = "FTP Login Data";
+"Illegal Port" = "Illegal Port";
+"Insert FTP data here" = "Insert FTP data here";
+"Reset FTP data" = "Reset FTP data";
+"Reset complete" = "Reset complete";
+"Choose Upload File..." = "Choose Upload File...";
+"Overwrite" = "Overwrite";
+"File with filename already exists. Should overwrite existing file?" = "A File with that filename already exists. Overwrite?";
+"Yes" = "Yes";
+"No" = "No";
+"No WiFi Available" = "No WiFi Available";
+"Local Syncing needs WiFi to work" = "Local Syncing needs a WiFi network to work.";
+
+
+// Touch ID and Default Database
+"No Touch ID enabled" = "No Touch ID enabled. Please enable TouchID in the Settings App.";
+"Unknown Touch ID entered. Please try again." = "Unknown Touch ID entered. Please try again.";
+"Decrypt Database" = "Decrypt Database";
+"TouchID Enabled" = "Enable TouchID";
+"Unlock your database quickly with TouchID" = "Unlock your database quickly with TouchID";
+"Choose to open a default database on launch." = "Choose to open a default database on launch.";
+"Default Database" = "Default Database";
+
+// Purchase
+"In-App-Purchase" = "In-App-Purchase";
+"Remove Ads" = "Remove Ads";
+"Restore Purchase" = "Restore Purchase";
+"Thank you for using KeePass Touch! \n\n If you like what we are doing with KeePass on iOS, please consider removing the ads in the app for a small fee to support our cause to make a great KeePass iOS Experience! \n Just go to Settings -> Remove Ads." = "Thank you for using KeePass Touch! \n\n If you like what we are doing with KeePass on iOS, please consider removing the ads in the app for a small fee to support our cause to make a great KeePass iOS Experience! \n Just go to Settings -> Remove Ads.";
+"Restore or buy the removal of ads. \n That way you will support our cause to bring more features to KeePass Touch" = "Restore or buy the removal of ads. \n That way you will support our cause to bring more features to KeePass Touch";
+
+// General Messages
+"Welcome" = "Welcome";
+"Enter your PIN to unlock" = "Enter your PIN to unlock";
+"Enter the password and/or select the keyfile for the %@ database." = "Enter the password and/or select the keyfile for the %@ database.";
+"Enter a new name for the password database. The correct file extension will automatically be appended." = "Enter a new name for the password database. The correct file extension will automatically be appended.";
+"Do not forget your database password, it cannot be recovered." = "Do not forget your database password, it cannot be recovered.";
+
+// Error Messages
+"Error" = "Error";
+"New name is invalid" = "New name is invalid";
+"Name cannot be empty" = "Name cannot be empty";
+"Database name is required" = "Database name is required";
+"Passwords do not match" = "Passwords do not match";
+"Password is required" = "Password is required";
+"Incorrect PIN" = "Incorrect PIN";
+"Attempts Remaining" = "Attempts Remaining";
+"Filename is invalid" = "Filename is invalid";
+"A file already exists with this name" = "A file already exists with this name";
+"There are no applications installed capable of importing KeePass files" = "There are no applications installed capable of importing KeePass files";
+"Tap the + button to add a new KeePass file." = "Tap the + button to add a new KeePass file.";
+"No password or keyfile specified" = "No password or keyfile specified";
+
+// Settings Page
+"Settings" = "Settings";
+"PIN Enabled" = "PIN Enabled";
+"LocalOverwrite Enabled" = "Enable overwrite";
+"Automatically overwrite database on local sync if file already exists" = "Automatically overwrite database on local sync if file already exists";
+"Lock Timeout" = "Lock Timeout";
+"Immediately" = "Immediately";
+"30 Seconds" = "30 Seconds";
+"1 Minute" = "1 Minute";
+"2 Minutes" = "2 Minutes";
+"3 Minutes" = "3 Minutes";
+"5 Minutes" = "5 Minutes";
+"Enabled" = "Enabled";
+"Attempts" = "Attempts";
+"Close Enabled" = "Close Enabled";
+"Close Timeout" = "Close Timeout";
+"Hide Passwords" = "Hide Passwords";
+"Sorting" = "Sorting";
+"Sort Groups and Entries Alphabetically" = "Sort Groups and Entries Alphabetically";
+"Encoding" = "Encoding";
+"UTF-8" = "UTF-8";
+"UTF-16 Big Endian" = "UTF-16 Big Endian";
+"UTF-16 Little Endian" = "UTF-16 Little Endian";
+"Latin 1 (ISO/IEC 8859-1)" = "Latin 1 (ISO/IEC 8859-1)";
+"Latin 2 (ISO/IEC 8859-2)" = "Latin 2 (ISO/IEC 8859-2)";
+"7-Bit ASCII" = "7-Bit ASCII";
+"Japanese EUC" = "Japanese EUC";
+"ISO-2022-JP" = "ISO-2022-JP";
+"PIN Protection" = "PIN Protection";
+"Delete All Data on PIN Failure" = "Delete All Data on PIN Failure";
+"Close Database on Timeout" = "Close Database on Timeout";
+"Remember Database Passwords" = "Remember Database Passwords";
+"Hide Passwords" = "Hide Passwords";
+"Password Encoding" = "Password Encoding";
+"Clear Clipboard on Timeout" = "Clear Clipboard on Timeout";
+"Clear Timeout" = "Clear Timeout";
+"Prevent unauthorized access to KeePass Touch with a PIN." = "Prevent unauthorized access to KeePass Touch with a PIN.";
+"Delete all files and passwords after too many failed attempts." = "Delete all files and passwords after too many failed attempts.";
+"Automatically close an open database after the selected timeout." = "Automatically close an open database after the selected timeout.";
+"Stores remembered database passwords in the devices's secure keychain." = "Stores remembered database passwords in the devices's secure keychain.";
+"Hides passwords when viewing a password entry." = "Hides passwords when viewing a password entry.";
+"The string encoding used for passwords when converting them to database keys." = "The string encoding used for passwords when converting them to database keys.";
+"Clear the contents of the clipboard after a given timeout upon performing a copy." = "Clear the contents of the clipboard after a given timeout upon performing a copy.";
+"Close Timeout" = "Close Timeout";
+"Clear Clipboard Timeout" = "Clear Clipboard Timeout";
+"Web Browser" = "Web Browser";
+"Integrated" = "Integrated";
+"Switch between an integrated web browser and Safari." = "Switch between an integrated web browser and Safari.";
+"Set PIN" = "Set PIN";
+"Confirm PIN" = "Confirm PIN";
+"PINs did not match. Try again" = "PINs did not match. Try again";
+"KeePass Touch version %@" = "KeePass Touch version %@";
+
+// Help Titles
+"Technical help" = "Technical help";
+"iTunes Import/Export" = "iTunes Import/Export";
+"Dropbox Import/Export" = "Dropbox Import/Export";
+"Safari/Email Import" = "Safari/Email Import";
+"Create New Database" = "Create New Database";
+"Key Files" = "Key Files";
+"Source Code" = "Source Code";
+
+// Password Generator
+"Generator" = "Generator";
+"Length" = "Length";
+"Character Sets" = "Character Sets";
+"Upper Case" = "Upper Case";
+"Lower Case" = "Lower Case";
+"Upper" = "Upper";
+"Lower" = "Lower";
+"Digits" = "Digits";
+"Minus" = "Minus";
+"Underline" = "Underline";
+"Space" = "Space";
+"Special" = "Special";
+"Brackets" = "Brackets";
+"None Selected" = "None Selected";

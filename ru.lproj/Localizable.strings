@@ -1,0 +1,227 @@
+/*
+ * Copyright 2011 Jason Rush and John Flanagan. All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"Files" = "Файлы";
+"Databases" = "Базы данных";
+"Key File" = "Файл ключа";
+"Key Files" = "Файлы ключей";
+"Groups" = "Группы";
+"Entries" = "Записи";
+"Group" = "Группа";
+"Entry" = "Запись";
+"New Database" = "Новая база данных";
+"New Group" = "Новая группа";
+"New Entry" = "Новая запись";
+"Edit Group" = "Изменить группу";
+"Edit Entry" = "Изменить запись";
+"Title" = "Название";
+"Image" = "Значок";
+"Images" = "Значки";
+"Username" = "Логин";
+"Password" = "Пароль";
+"Confirm Password" = "Подтвердите пароль";
+"Expiration Date" = "Истекает";
+"URL" = "Ссылка";
+"Comments" = "Заметки";
+"OK" = "OK";
+"Cancel" = "Отмена";
+"Add" = "Добавить";
+"Search" = "Поиск";
+"Help" = "Справка";
+"Version 1.x" = "Версия 1.x";
+"Version 2.x" = "Версия 2.x";
+"None" = "Нет";
+"Name" = "Имя";
+"Value" = "Значение";
+"Delete" = "Удалить";
+"Move" = "Переместить";
+"Rename" = "Переименовать";
+"Database Name" = "Имя базы данных";
+"Last Modified" = "Последнее изменение";
+"Copied" = "Данные скопированы";
+"In Memory Protection" = "Защита в памяти";
+"Custom Field" = "Строковое поле";
+"Custom Fields" = "Строковые поля";
+"Add new…" = "Добавить…";
+"Choose Group" = "Выберите группу";
+"Backup" = "Резервное копирование";
+"Choose" = "Выбрать";
+"Canceled" = "Отменено";
+
+
+// Dropbox Sync
+"No Folders or Files in here" = "Нет папок или файлов";
+"Choose one of the following options" = "Выберите один из следующих вариантов";
+"Local" = "База данных на вашем устройстве";
+"Don't Auto Sync" = "Нет";
+"If you choose Auto Sync the app will sync with the chosen Dropbox folder on each startup. Should auto-sync with the chosen folder be enabled? You can reset this in the settings." = "Хотите активировать функцию автоматической синхронизации с выбранной папкой в Dropbox при каждом запуске программы? Вы можете в любой момент отменить внесённые изменения в настройках.";
+"Reset Dropbox Settings" = "Сбросить настройки Dropbox";
+"Your dropbox file is newer than the local file.\n Which one do you want to keep and use?" = "База данных, находящаяся в Dropbox новее, чем на вашем устройстве.\n Какую базу данных вы хотите сохранить и использовать?";
+"Your local file is newer than the dropbox file.\n Which one do you want to keep and use?" = "База данных, находящаяся на вашем устройстве новее, чем в Dropbox.\n Какую базу данных вы хотите сохранить и использовать?";
+
+"Newer Version" = "Новую версию";
+"Older Version" = "Старую версию";
+
+"Invalid database row" = "Недопустимая строка базы данных";
+
+"Dropbox Sync Init" = "Синхронизация";
+"Dropbox Sync" = "Dropbox";
+
+
+// FTP Connect & Local Sync
+"Connect" = "Подключить";
+"FTP Login Data" = "Настройка FTP";
+"Illegal Port" = "Неверный порт";
+"Insert FTP data here" = "Введите данные FTP";
+"Reset FTP data" = "Сбросить настройки FTP";
+"Reset complete" = "Сброс завершён";
+"Choose Upload File..." = "Выберите загружаемый файл...";
+"Overwrite" = "Перезаписать";
+"File with filename already exists. Should overwrite existing file?" = "Файл с таким именем существует. Перезаписать?";
+"Yes" = "Да";
+"No" = "Нет";
+"No WiFi Available" = "Нет доступных Wi-Fi сетей";
+"Local Syncing needs WiFi to work" = "Для синхронизации нужна Wi-Fi сеть.";
+
+"Host" = "Сервер";
+"Port" = "Порт";
+
+
+// Synchronisation
+"Synchronisation" = "Синхронизация";
+"Local Sync" = "По Wi-Fi";
+"Dropbox Sync" = "Через Dropbox";
+"FTP Sync" = "По FTP";
+
+
+// Touch ID and Default Database
+"No Touch ID enabled" = "Touch ID не включён. Пожалуйста, включите Touch ID в настройках приложения.";
+"Unknown Touch ID entered. Please try again." = "Touch ID не распознан. Пожалуйста, повторите ещё.";
+"Decrypt Database" = "Расшифровать базу данных";
+"TouchID Enabled" = "Touch ID включён";
+"Unlock your database quickly with TouchID" = "Расшифровка баз данных с помощью Touch ID";
+"Choose to open a default database on launch." = "Выбор базы данных по умолчанию.";
+"Default Database" = "База данных по умолчанию";
+
+// Purchase
+"In-App-Purchase" = "Встроенные покупки";
+"Remove Ads" = "Отключить рекламу";
+"Restore Purchase" = "Восстановить покупки";
+"Thank you for using KeePass Touch! \n\n If you like what we are doing with KeePass on iOS, please consider removing the ads in the app for a small fee to support our cause to make a great KeePass iOS Experience! \n Just go to Settings -> Remove Ads." = "Благодарим вас за использование KeePass Touch! \n\n Если вам нравится, то что мы делаем с KeePass на iOS, вы можете поддержать нас, отключив рекламу в приложении за небольшую плату. \n Для этого зайдите в Настройки -> Отключить рекламу.";
+"Restore or buy the removal of ads. \n That way you will support our cause to bring more features to KeePass Touch" = "Восстановите ваши покупки или отключите рекламу. Таким образом, вы можете помочь нам добавить больше функций в KeePass Touch.";
+
+// General Messages
+"Welcome" = "Добро пожаловать";
+"Enter your PIN to unlock" = "Введите PIN-код для разблокировки";
+"Enter the password and/or select the keyfile for the %@ database." = "Введите пароль и/или выберите файл ключа для базы данных %@.";
+"Enter a new name for the password database. The correct file extension will automatically be appended." = "Введите новое имя для базы данных. Правильное расширение файла будет автоматически добавлено.";
+"Do not forget your database password, it cannot be recovered." = "Запомните пароль к базе данных, т.к. он не может быть восстановлен.";
+
+// Error Messages
+"Error" = "Ошибка";
+"New name is invalid" = "Вы ввели недопустимое имя";
+"Name cannot be empty" = "Введите имя поля";
+"Database name is required" = "Необходимо ввести имя базы данных";
+"Passwords do not match" = "Пароли не совпадают";
+"Password is required" = "Необходимо ввести пароль";
+"Incorrect PIN" = "Неправильный PIN-код";
+"Attempts Remaining" = "Осталось попыток";
+"Filename is invalid" = "Недопустимое имя файла";
+"A file already exists with this name" = "Файл с этим именем уже существует";
+"There are no applications installed capable of importing KeePass files" = "Нет установленных приложений, способных импортировать файлы KeePass";
+"Tap the + button to add a new KeePass file." = "Нажмите кнопку +, чтобы добавить новый файл KeePass.";
+"No password or keyfile specified" = "Не указан ни пароль, ни файл ключа";
+
+// Settings Page
+"Settings" = "Настройки";
+"PIN Enabled" = "PIN-код включён";
+"LocalOverwrite Enabled" = "Включено";
+"Automatically overwrite database on local sync if file already exists" = "Автоматически перезаписывать базу данных на устройстве, если файл уже существует.";
+"Lock Timeout" = "Тайм-аут блокировки";
+"Immediately" = "Сразу";
+"30 Seconds" = "30 сек.";
+"1 Minute" = "1 мин.";
+"2 Minutes" = "2 мин.";
+"3 Minutes" = "3 мин.";
+"5 Minutes" = "5 мин.";
+"Enabled" = "Включено";
+"Attempts" = "Попыток";
+"Close Enabled" = "Включено";
+"Close Timeout" = "Тайм-аут закрытия";
+"Hide Passwords" = "Включено";
+"Sorting" = "Сортировка";
+"Sort Groups and Entries Alphabetically" = "Сортировать группы и записи в алфавитном порядке.";
+"Encoding" = "Кодировка";
+"UTF-8" = "UTF-8";
+"UTF-16 Big Endian" = "UTF-16 Big Endian";
+"UTF-16 Little Endian" = "UTF-16 Little Endian";
+"Latin 1 (ISO/IEC 8859-1)" = "Latin 1 (ISO/IEC 8859-1)";
+"Latin 2 (ISO/IEC 8859-2)" = "Latin 2 (ISO/IEC 8859-2)";
+"7-Bit ASCII" = "7-Bit ASCII";
+"Japanese EUC" = "Japanese EUC";
+"ISO-2022-JP" = "ISO-2022-JP";
+"PIN Protection" = "Защита PIN-кодом";
+"Delete All Data on PIN Failure" = "Удалить все данные при вводе неправильного PIN-кода";
+"Close Database on Timeout" = "Закрыть базу данных по истечении заданного промежутка времени";
+"Remember Database Passwords" = "Запоминать пароли от баз данных";
+"Hide Passwords" = "Включено";
+"Password Encoding" = "Кодировка паролей";
+"Clear Clipboard on Timeout" = "Время автоочистки буфера обмена при копировании";
+"Clear Timeout" = "Тайм-аут очистки";
+"Prevent unauthorized access to KeePass Touch with a PIN." = "Предотвратить неавторизованный доступ к KeePass Touch с помощью PIN-кода.";
+"Delete all files and passwords after too many failed attempts." = "Автоматически удалять все файлы и пароли после нескольких неудачных попыток ввода PIN-кода.";
+"Automatically close an open database after the selected timeout." = "Автоматически закрывать открытую базу данных по истечении заданного промежутка времени.";
+"Stores remembered database passwords in the devices's secure keychain." = "Сохранять пароли от баз данных в безопасной связке ключей устройства.";
+"Hides passwords when viewing a password entry." = "Скрывать пароли при просмотре записей.";
+"The string encoding used for passwords when converting them to database keys." = "Кодировка текста, используемая при преобразовании паролей в ключи базы данных.";
+"Clear the contents of the clipboard after a given timeout upon performing a copy." = "Очищать буфер обмена по истечении заданного промежутка времени.";
+"Close Timeout" = "Тайм-аут закрытия";
+"Clear Clipboard Timeout" = "Тайм-аут очистки";
+"Web Browser" = "Веб-браузер";
+"Integrated" = "Встроенный";
+"Switch between an integrated web browser and Safari." = "Переключение между встроенным веб-браузером и Safari.";
+"Set PIN" = "Установите PIN-код";
+"Confirm PIN" = "Подтвердите PIN-код";
+"PINs did not match. Try again" = "PIN-коды не совпадают. Попробуйте снова";
+"KeePass Touch version %@" = "KeePass Touch, версия %@";
+
+"Auto Sync" = "Автоматич. синхронизация";
+
+// Help Titles
+"Technical help" = "Техническая помощь";
+"iTunes Import/Export" = "Импорт/экспорт iTunes";
+"Dropbox Import/Export" = "Импорт/экспорт Dropbox";
+"Safari/Email Import" = "Импорт из Safari/Mail";
+"Create New Database" = "Создание новой базы данных";
+"Key Files" = "Файлы ключей";
+"Source Code" = "Исходный код";
+
+// Password Generator
+"Generator" = "Генератор";
+"Length" = "Длина пароля";
+"Character Sets" = "Набор символов";
+"Upper Case" = "Заглавные";
+"Lower Case" = "Строчные";
+"Upper" = "Загл.";
+"Lower" = "Строчн.";
+"Digits" = "Цифры";
+"Minus" = "Минус";
+"Underline" = "Подчёркивание";
+"Space" = "Пробел";
+"Special" = "Особые";
+"Brackets" = "Скобки";
+"None Selected" = "Ничего не выбрано";

@@ -1,0 +1,156 @@
+﻿/*
+ * Copyright 2011 Jason Rush and John Flanagan. All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"Files" = "File";
+"Databases" = "Database";
+"Key File" = "File chiave";
+"Key Files" = "File chiave";
+"Groups" = "Gruppi";
+"Entries" = "Voci";
+"Group" = "Gruppo";
+"Entry" = "Voce";
+"New Database" = "Nuovo database";
+"New Group" = "Nuovo gruppo";
+"New Entry" = "Nuova voce";
+"Edit Group" = "Modifica gruppo";
+"Edit Entry" = "Edit Entry"; // FIXME
+"Title" = "Titolo";
+"Image" = "Immagine";
+"Images" = "Immagini";
+"Username" = "Utente";
+"Password" = "Password";
+"Confirm Password" = "Conferma la password";
+"Expiration Date" = "Data di scadenza";
+"URL" = "URL";
+"Comments" = "Commenti";
+"OK" = "OK";
+"Cancel" = "Annulla";
+"Add" = "Aggiungi";
+"Search" = "Cerca";
+"Help" = "Aiuto";
+"Version 1.x" = "Versione 1.x";
+"Version 2.x" = "Versione 2.x";
+"None" = "Nessuno";
+"Name" = "Nome";
+"Value" = "Valore";
+"Delete" = "Elimina";
+"Move" = "Sposta";
+"Rename" = "Rinomina";
+"Database Name" = "Nome database";
+"Last Modified" = "Ultima modifica";
+"Copied" = "Copiato";
+"In Memory Protection" = "Protezione della memoria";
+"Custom Field" = "Campo personalizzato";
+"Custom Fields" = "Campi personalizzati";
+"Add new…" = "Aggiungi nuovo…";
+"Choose Group" = "Seleziona gruppo";
+"Backup" = "Backup"; // FIXME
+
+// General Messages
+"Enter your PIN to unlock" = "Inserisci il tuo PIN per sbloccare";
+"Enter the password and/or select the keyfile for the %@ database." = "Inserisci la password e/o seleziona il file chiave per il database %@.";
+"Enter a new name for the password database. The correct file extension will automatically be appended." = "Inserisci un nuovo nome per il database delle password. L'estensione corretta del file sar aggiunta automaticamente.";
+"Do not forget your database password, it cannot be recovered." = "Do not forget your database password, it cannot be recovered."; // FIXME
+
+// Error Messages
+"Error" = "Error"; // FIXME
+"New name is invalid" = "Il nuovo nome non è valido"; // FIXME
+"Name cannot be empty" = "Il nome non può essere vuoto"; // FIXME
+"Database name is required" = "È richiesto un nome per il database";
+"Passwords do not match" = "Le password non corrispondono";
+"Password is required" = "È richiesta la password";
+"Incorrect PIN" = "PIN errato";
+"Attempts Remaining" = "Attempts Remaining"; // FIXME
+"Filename is invalid" = "Il nome del file non è valido";
+"A file already exists with this name" = "Esiste già un file con questo nome";
+"There are no applications installed capable of importing KeePass files" = "Non ci sono applicazioni installate in grado di importare file di KeePass";
+"Tap the + button to add a new KeePass file." = "Tap the + button to add a new KeePass file."; // FIXME
+"No password or keyfile specified" = "No password or keyfile specified"; // FIXME
+
+// Settings Page
+"Settings" = "Impostazioni";
+"PIN Enabled" = "PIN abilitato";
+"Lock Timeout" = "Intervallo blocco";
+"Immediately" = "Immediatamente";
+"30 Seconds" = "30 secondi";
+"1 Minute" = "1 minuto";
+"2 Minutes" = "2 minuti";
+"3 Minutes" = "3 minuti";
+"5 Minutes" = "5 minuti";
+"Enabled" = "Abilitato";
+"Attempts" = "Tentativi";
+"Close Enabled" = "Chiusura abilitata";
+"Close Timeout" = "Intervallo chiusura";
+"Hide Passwords" = "Nascondi password";
+"Sorting" = "Ordinamento";
+"Sort Groups and Entries Alphabetically" = "Ordina gruppi e voci alfabeticamente";
+"Encoding" = "Codifica";
+"UTF-8" = "UTF-8";
+"UTF-16 Big Endian" = "UTF-16 Big Endian";
+"UTF-16 Little Endian" = "UTF-16 Little Endian";
+"Latin 1 (ISO/IEC 8859-1)" = "Latin 1 (ISO/IEC 8859-1)";
+"Latin 2 (ISO/IEC 8859-2)" = "Latin 2 (ISO/IEC 8859-2)";
+"7-Bit ASCII" = "7-Bit ASCII";
+"Japanese EUC" = "Japanese EUC";
+"ISO-2022-JP" = "ISO-2022-JP";
+"PIN Protection" = "Protezione PIN";
+"Delete All Data on PIN Failure" = "Elimina tutti i dati se il PIN è errato";
+"Close Database on Timeout" = "Chiudi il database allo scadere di un intervallo";
+"Remember Database Passwords" = "Ricorda le password dei database";
+"Hide Passwords" = "Nascondi le password";
+"Password Encoding" = "Codifica password";
+"Clear Clipboard on Timeout" = "Svuota la clipboard allo scadere di un intervallo";
+"Clear Timeout" = "Intervallo svuotamento";
+"Prevent unauthorized access to KeePass Touch with a PIN." = "Previeni accessi non autorizzati a KeePass Touch con un PIN.";
+"Delete all files and passwords after too many failed attempts." = "Elimina tutti i file e password dopo troppi tentativi errati.";
+"Automatically close an open database after the selected timeout." = "Chiudi automaticamente un database aperto allo scadere dell'intervallo selezionato.";
+"Stores remembered database passwords in the devices's secure keychain." = "Memorizza le password del database nel portachiavi sicuro del dispositivo.";
+"Hides passwords when viewing a password entry." = "Nasconde le password quando si visualizza una voce.";
+"The string encoding used for passwords when converting them to database keys." = "La codifica usata per le password quando vengono convertite in chiavi del database.";
+"Clear the contents of the clipboard after a given timeout upon performing a copy." = "Pulisci i contenuti della clipboard in un tempo dato dopo aver effettuato una copia.";
+"Close Timeout" = "Intervallo chiusura";
+"Clear Clipboard Timeout" = "Intervallo pulitura clipboard";
+"Web Browser" = "Web Browser"; // FIXME
+"Integrated" = "Integrated"; // FIXME
+"Switch between an integrated web browser and Safari." = "Switch between an integrated web browser and Safari."; // FIXME
+"Set PIN" = "Imposta PIN";
+"Confirm PIN" = "Conferma PIN";
+"PINs did not match. Try again" = "I PIN non corrispondono. Prova di nuovo";
+"KeePass Touch version %@" = "KeePass Touch versione %@";
+
+// Help Titles
+"iTunes Import/Export" = "Importa/Esporta da iTunes";
+"Dropbox Import/Export" = "Importa/Esporta da Dropbox";
+"Safari/Email Import" = "Importa da Safari o Email";
+"Create New Database" = "Crea un Nuovo Database";
+"Key Files" = "File chiave";
+
+// Password Generator
+"Generator" = "Generatore";
+"Length" = "Lunghezza";
+"Character Sets" = "Set dei caratteri";
+"Upper Case" = "Maiuscolo";
+"Lower Case" = "Minuscolo";
+"Upper" = "Maggiore";
+"Lower" = "Minore";
+"Digits" = "Numeri";
+"Minus" = "Meno";
+"Underline" = "Sottolineato";
+"Space" = "Spazio";
+"Special" = "Speciale";
+"Brackets" = "Parentesi";
+"None Selected" = "Nessuno selezionato";

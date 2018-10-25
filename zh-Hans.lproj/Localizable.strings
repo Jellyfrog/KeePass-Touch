@@ -1,0 +1,156 @@
+﻿/*
+ * Copyright 2011 Jason Rush and John Flanagan. All rights reserved.
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+"Files" = "文件";
+"Databases" = "数据库";
+"Key File" = "密匙文件";
+"Key Files" = "密匙文件";
+"Groups" = "群组";
+"Entries" = "记录";
+"Group" = "群组";
+"Entry" = "记录";
+"New Database" = "新数据库";
+"New Group" = "新群组";
+"New Entry" = "新记录";
+"Edit Group" = "编辑群组";
+"Edit Entry" = "Edit Entry"; // FIXME
+"Title" = "标题";
+"Image" = "图标";
+"Images" = "Images"; // FIXME
+"Username" = "用户名";
+"Password" = "密码";
+"Confirm Password" = "确认密码";
+"Expiration Date" = "Expiration Date";
+"URL" = "网址";
+"Comments" = "备注";
+"OK" = "确定";
+"Cancel" = "取消";
+"Add" = "添加";
+"Search" = "搜索";
+"Help" = "帮助";
+"Version 1.x" = "1.x 版本";
+"Version 2.x" = "2.x 版本";
+"None" = "无";
+"Name" = "名称";
+"Value" = "Value"; // FIXME
+"Delete" = "Delete"; // FIXME
+"Move" = "Move"; // FIXME
+"Rename" = "重命名";
+"Database Name" = "数据库名";
+"Last Modified" = "Last Modified"; // FIXME
+"Copied" = "Copied"; // FIXME
+"In Memory Protection" = "In Memory Protection"; // FIXME
+"Custom Field" = "Custom Field"; // FIXME
+"Custom Fields" = "Custom Fields"; // FIXME
+"Add new…" = "Add new…"; // FIXME
+"Choose Group" = "Choose Group"; // FIXME
+"Backup" = "Backup"; // FIXME
+
+// General Messages
+"Enter your PIN to unlock" = "输入 PIN 码解锁";
+"Enter the password and/or select the keyfile for the %@ database." = "为访问“%@”数据库，您需要输入密码或选定密匙文件";
+"Enter a new name for the password database. The correct file extension will automatically be appended." = "请为密码数据库输入新的名称，文件扩展名将会自动添加";
+"Do not forget your database password, it cannot be recovered." = "Do not forget your database password, it cannot be recovered."; // FIXME
+
+// Error Messages
+"Error" = "Error"; // FIXME
+"New name is invalid" = "New name is invalid"; // FIXME
+"Name cannot be empty" = "Name cannot be empty"; // FIXME
+"Database name is required" = "必须输入数据库名";
+"Passwords do not match" = "密码不匹配";
+"Password is required" = "必须输入密码";
+"Incorrect PIN" = "PIN 码错误";
+"Attempts Remaining" = "Attempts Remaining"; // FIXME
+"Filename is invalid" = "文件名无效";
+"A file already exists with this name" = "已存在同名文件";
+"There are no applications installed capable of importing KeePass files" = "尚未安装支持导入 KeePass 文件的应用";
+"Tap the + button to add a new KeePass file." = "Tap the + button to add a new KeePass file."; // FIXME
+"No password or keyfile specified" = "No password or keyfile specified"; // FIXME
+
+// Settings Page
+"Settings" = "设置";
+"PIN Enabled" = "启用 PIN 码";
+"Lock Timeout" = "锁定前时长";
+"Immediately" = "立刻";
+"30 Seconds" = "30 秒";
+"1 Minute" = "1 分钟";
+"2 Minutes" = "2 分钟";
+"3 Minutes" = "3 分钟";
+"5 Minutes" = "5 分钟";
+"Enabled" = "启用";
+"Attempts" = "可尝试次数";
+"Close Enabled" = "启用";
+"Close Timeout" = "关闭前时长";
+"Hide Passwords" = "默认隐藏密码";
+"Sorting" = "排序";
+"Sort Groups and Entries Alphabetically" = "按字母顺序对群组和记录进行排序";
+"Encoding" = "编码方式";
+"UTF-8" = "UTF-8";
+"UTF-16 Big Endian" = "UTF-16 Big Endian";
+"UTF-16 Little Endian" = "UTF-16 Little Endian";
+"Latin 1 (ISO/IEC 8859-1)" = "Latin 1 (ISO/IEC 8859-1)";
+"Latin 2 (ISO/IEC 8859-2)" = "Latin 2 (ISO/IEC 8859-2)";
+"7-Bit ASCII" = "7-Bit ASCII";
+"Japanese EUC" = "Japanese EUC";
+"ISO-2022-JP" = "ISO-2022-JP";
+"PIN Protection" = "PIN 码保护";
+"Delete All Data on PIN Failure" = "当 PIN 码验证失败时删除所有数据";
+"Close Database on Timeout" = "超时后关闭数据库";
+"Remember Database Passwords" = "记住数据库密码";
+"Hide Passwords" = "默认隐藏密码";
+"Password Encoding" = "密码编码方式";
+"Clear Clipboard on Timeout" = "超时后清空剪贴板内容";
+"Clear Timeout" = "清空前时长";
+"Prevent unauthorized access to KeePass Touch with a PIN." = "使用 PIN 码以避免对 KeePass Touch 的未授权访问";
+"Delete all files and passwords after too many failed attempts." = "尝试失败次数过多后删除所有文件和密码";
+"Automatically close an open database after the selected timeout." = "在设定的时长后自动关闭数据库";
+"Stores remembered database passwords in the devices's secure keychain." = "使用系统的 keychain 保存数据库密码";
+"Hides passwords when viewing a password entry." = "查看记录时默认隐藏密码";
+"The string encoding used for passwords when converting them to database keys." = "密码转换为数据库密匙时使用的编码方式";
+"Clear the contents of the clipboard after a given timeout upon performing a copy." = "在设定的时长后清除剪贴板内容";
+"Close Timeout" = "关闭前时长";
+"Clear Clipboard Timeout" = "超时后清除剪贴板内容";
+"Web Browser" = "Web Browser"; // FIXME
+"Integrated" = "Integrated"; // FIXME
+"Switch between an integrated web browser and Safari." = "Switch between an integrated web browser and Safari."; // FIXME
+"Set PIN" = "设定 PIN 码";
+"Confirm PIN" = "确认 PIN 码";
+"PINs did not match. Try again" = "两次输入的 PIN 码不匹配，请重试";
+"KeePass Touch version %@" = "KeePass Touch version %@"; // FIXME
+
+// Help Titles
+"iTunes Import/Export" = "从 iTunes 导入/导出";
+"Dropbox Import/Export" = "从 Dropbox 导入/导出";
+"Safari/Email Import" = "从 Safari/Email 导入";
+"Create New Database" = "创建新数据库";
+"Key Files" = "密匙文件";
+
+// Password Generator
+"Generator" = "密码生成器";
+"Length" = "密码长度";
+"Character Sets" = "字符设定";
+"Upper Case" = "大写字母";
+"Lower Case" = "小写字母";
+"Upper" = "大写字母";
+"Lower" = "小写字母";
+"Digits" = "数字";
+"Minus" = "减号";
+"Underline" = "下划线";
+"Space" = "空格";
+"Special" = "特殊字符";
+"Brackets" = "括号";
+"None Selected" = "未设定";

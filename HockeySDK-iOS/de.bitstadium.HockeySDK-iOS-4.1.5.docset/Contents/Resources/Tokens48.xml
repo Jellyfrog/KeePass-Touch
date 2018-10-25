@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/BITLogLevel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/BITLogLevel</TokenIdentifier>
+			<Abstract type="html">HockeySDK Log Levels</Abstract>
+			<DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+			
+			<NodeRef refid="48"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITLogLevelNone</TokenIdentifier>
+            <Abstract type="html">Logging is disabled
+   </Abstract>
+            <Declaration>BITLogLevelNone</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="48"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITLogLevelError</TokenIdentifier>
+            <Abstract type="html">Only errors will be logged
+   </Abstract>
+            <Declaration>BITLogLevelError</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="48"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITLogLevelWarning</TokenIdentifier>
+            <Abstract type="html">Errors and warnings will be logged
+   </Abstract>
+            <Declaration>BITLogLevelWarning</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="48"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITLogLevelDebug</TokenIdentifier>
+            <Abstract type="html">Debug information will be logged
+   </Abstract>
+            <Declaration>BITLogLevelDebug</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="48"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITLogLevelVerbose</TokenIdentifier>
+            <Abstract type="html">Logging will be very chatty
+   </Abstract>
+            <Declaration>BITLogLevelVerbose</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="48"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

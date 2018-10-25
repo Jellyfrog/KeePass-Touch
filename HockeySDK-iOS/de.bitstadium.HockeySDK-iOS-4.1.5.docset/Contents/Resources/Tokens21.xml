@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/BITMetricsManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/BITMetricsManager</TokenIdentifier>
+			<Abstract type="html">The metrics module.</Abstract>
+			<DeclaredIn>BITMetricsManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="21"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITMetricsManager/setDisabled:</TokenIdentifier>
+			<Abstract type="html">A property indicating whether the BITMetricsManager instance is disabled.</Abstract>
+			<DeclaredIn>BITMetricsManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL disabled</Declaration>
+			
+			
+			<Anchor>//api/name/disabled</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITMetricsManager/disabled</TokenIdentifier>
+			<Abstract type="html">A property indicating whether the BITMetricsManager instance is disabled.</Abstract>
+			<DeclaredIn>BITMetricsManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL disabled</Declaration>
+			
+			
+			<Anchor>//api/name/disabled</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/BITMetricsManager/disabled</TokenIdentifier>
+			<Abstract type="html">A property indicating whether the BITMetricsManager instance is disabled.</Abstract>
+			<DeclaredIn>BITMetricsManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL disabled</Declaration>
+			
+			
+			<Anchor>//api/name/disabled</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITMetricsManager/trackEventWithName:</TokenIdentifier>
+			<Abstract type="html">This method allows to track an event that happened in your app.
+Remember to choose meaningful event names to have the best experience when diagnosing your app
+in the HockeyApp web portal.</Abstract>
+			<DeclaredIn>BITMetricsManager.h</DeclaredIn>
+			
+			<Declaration>- (void)trackEventWithName:(nonnull NSString *)eventName</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>eventName</Name>
+					<Abstract type="html">The event&apos;s name as a string.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/trackEventWithName:</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/BITMetricsManager/trackEventWithName:properties:measurements:</TokenIdentifier>
+			<Abstract type="html">This method allows to track an event that happened in your app.
+Remember to choose meaningful event names to have the best experience when diagnosing your app
+in the web portal.</Abstract>
+			<DeclaredIn>BITMetricsManager.h</DeclaredIn>
+			
+			<Declaration>- (void)trackEventWithName:(nonnull NSString *)eventName properties:(nullable NSDictionary&lt;NSString*,NSString*&gt; *)properties measurements:(nullable NSDictionary&lt;NSString*,NSNumber*&gt; *)measurements</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>eventName</Name>
+					<Abstract type="html">the name of the event, which should be tracked.</Abstract>
+				</Parameter><Parameter>
+					<Name>properties</Name>
+					<Abstract type="html">key value pairs with additional info about the event.</Abstract>
+				</Parameter><Parameter>
+					<Name>measurements</Name>
+					<Abstract type="html">key value pairs, which contain custom metrics.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/trackEventWithName:properties:measurements:</Anchor>
+            <NodeRef refid="21"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

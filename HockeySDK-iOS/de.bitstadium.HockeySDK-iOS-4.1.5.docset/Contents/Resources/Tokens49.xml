@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/BITSdkEnvironment.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/BITSdkEnvironment</TokenIdentifier>
+			<Abstract type="html">SDK Environment</Abstract>
+			<DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+			
+			<NodeRef refid="49"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITSdkEnvironmentNative</TokenIdentifier>
+            <Abstract type="html">A regular native iOS environment
+   </Abstract>
+            <Declaration>BITSdkEnvironmentNative</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="49"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/BITSdkEnvironmentXamarin</TokenIdentifier>
+            <Abstract type="html">A xamarin environment
+   </Abstract>
+            <Declaration>BITSdkEnvironmentXamarin</Declaration>
+            
+            <DeclaredIn>HockeySDKEnums.h</DeclaredIn>
+            
+            <NodeRef refid="49"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

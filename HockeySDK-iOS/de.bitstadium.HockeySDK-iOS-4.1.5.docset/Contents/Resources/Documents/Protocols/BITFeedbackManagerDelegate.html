@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BITFeedbackManagerDelegate Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">HockeySDK-iOS 4.1.5 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Bit Stadium GmbH</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/allowAutomaticFetchingForNewFeedbackForManager:">- allowAutomaticFetchingForNewFeedbackForManager:</option>
+		
+		<option value="//api/name/feedbackManagerDidReceiveNewFeedback:">- feedbackManagerDidReceiveNewFeedback:</option>
+		
+		<option value="//api/name/forceNewFeedbackThreadForFeedbackManager:">- forceNewFeedbackThreadForFeedbackManager:</option>
+		
+		<option value="//api/name/preparedItemsForFeedbackManager:">- preparedItemsForFeedbackManager:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BITFeedbackManagerDelegate Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td><a href="../Protocols/BITFeedbackComposeViewControllerDelegate.html">BITFeedbackComposeViewControllerDelegate</a><br />NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>BITFeedbackManagerDelegate.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<pre><code>Delegate protocol which is notified about changes in the feedbackManager
+</code></pre>
+
+<p>@TODO
+* move shouldShowUpdateAlert from feedbackManager here</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/allowAutomaticFetchingForNewFeedbackForManager:" title="allowAutomaticFetchingForNewFeedbackForManager:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allowAutomaticFetchingForNewFeedbackForManager:">&ndash;&nbsp;allowAutomaticFetchingForNewFeedbackForManager:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Can be implemented to control wether the feedback manager should automatically
+fetch for new messages on app startup or when becoming active.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)allowAutomaticFetchingForNewFeedbackForManager:(BITFeedbackManager *)<em>feedbackManager</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>feedbackManager</code></th>
+						<td><p>The feedbackManager which did detect the new messages</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>By default the SDK fetches on app startup or when the app is becoming active again
+if there are already messages existing or pending on the device.</p>
+
+<p>You could disable it e.g. depending on available mobile network/WLAN connection
+or let it fetch less frequently.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITFeedbackManagerDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/feedbackManagerDidReceiveNewFeedback:" title="feedbackManagerDidReceiveNewFeedback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/feedbackManagerDidReceiveNewFeedback:">&ndash;&nbsp;feedbackManagerDidReceiveNewFeedback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<pre><code>can be implemented to know when new feedback from the server arrived
+</code></pre>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)feedbackManagerDidReceiveNewFeedback:(BITFeedbackManager *)<em>feedbackManager</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>feedbackManager</code></th>
+						<td><p>The feedbackManager which did detect the new messages</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITFeedbackManagerDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/preparedItemsForFeedbackManager:" title="preparedItemsForFeedbackManager:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/preparedItemsForFeedbackManager:">&ndash;&nbsp;preparedItemsForFeedbackManager:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This optional method can be implemented to provide items to prefill
+the FeedbackComposeMessage user interface with the given items.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nullable NSArray *)preparedItemsForFeedbackManager:(BITFeedbackManager *)<em>feedbackManager</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>feedbackManager</code></th>
+						<td><p>The <a href="../Classes/BITFeedbackManager.html">BITFeedbackManager</a> instance that will handle sending the feedback.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An array containing the items to be attached to the feedback message</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If the user sends the feedback message, these items will be attached to that message.</p>
+
+<p>All NSString-Content in the array will be concatenated and result in the message,
+while all UIImage and NSData-instances will be turned into attachments.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p>`<a href="../Classes/BITFeedbackComposeViewController.html#//api/name/prepareWithItems:">[BITFeedbackComposeViewController prepareWithItems:]</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITFeedbackManagerDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/forceNewFeedbackThreadForFeedbackManager:" title="forceNewFeedbackThreadForFeedbackManager:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/forceNewFeedbackThreadForFeedbackManager:">&ndash;&nbsp;forceNewFeedbackThreadForFeedbackManager:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Indicates if a new thread should be created for each new feedback message</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)forceNewFeedbackThreadForFeedbackManager:(BITFeedbackManager *)<em>feedbackManager</em></code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A BOOL indicating if each feedback message should be sent as a new thread.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Setting it to <code>YES</code> will force a new thread whenever a new message is sent as
+opposed to the default resume thread behaviour.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITFeedbackManagerDelegate.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2017 Bit Stadium GmbH. All rights reserved. Updated: 2017-04-28</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

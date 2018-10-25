@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>BITStoreUpdateManager Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">HockeySDK-iOS 4.1.5 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Bit Stadium GmbH</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/checkForUpdateOnLaunch">checkForUpdateOnLaunch</option>
+		
+		<option value="//api/name/countryCode">countryCode</option>
+		
+		<option value="//api/name/updateSetting">updateSetting</option>
+		
+		<option value="//api/name/updateUIEnabled">updateUIEnabled</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/checkForUpdate">- checkForUpdate</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">BITStoreUpdateManager Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/BITHockeyBaseManager.html">BITHockeyBaseManager</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>BITStoreUpdateManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The store update manager module.</p>
+
+<p>This is the HockeySDK module for handling app updates when having your app released in the App Store.
+By default the module uses the current users locale to define the app store to check for updates. You
+can modify this using the <a href="#//api/name/countryCode"><code>countryCode</code></a> property. See the property documentation for details on its usage.</p>
+
+<p>When an update is detected, this module will show an alert asking the user if he/she wants to update or
+ignore this version. If update was chosen, it will open the apps page in the app store app.</p>
+
+<p>You need to enable this module using <a href="../Classes/BITHockeyManager.html#//api/name/enableStoreUpdateManager"><code>[BITHockeyManager enableStoreUpdateManager]</code></a> if you want to use this
+feature. By default this module is disabled!</p>
+
+<p>When this module is enabled and <strong>NOT</strong> running in an App Store build/environment, it won&rsquo;t do any checks!</p>
+
+<p>The <a href="../Protocols/BITStoreUpdateManagerDelegate.html"><code>BITStoreUpdateManagerDelegate</code></a> protocol informs the app about new detected app versions.</p><div class="warning"><p><strong>Warning:</strong> This module can <strong>NOT</strong> check if the current device and OS version match the minimum requirements of
+the new app version!</p></div>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						<a title="Update Checking" name="task_Update Checking"></a>
+						<h2 class="task-title">Update Checking</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/updateSetting" title="updateSetting"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateSetting">&nbsp;&nbsp;updateSetting</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>When to check for new updates.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BITStoreUpdateSetting updateSetting</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Defines when a the SDK should check if there is a new update available on the
+server. This must be assigned one of the following, see <a href="../Constants/BITStoreUpdateSetting.html"><code>BITStoreUpdateSetting</code></a>:</p>
+
+<ul>
+<li><code>BITStoreUpdateCheckDaily</code>: Once a day</li>
+<li><code>BITStoreUpdateCheckWeekly</code>: Once a week</li>
+<li><code>BITStoreUpdateCheckManually</code>: Manually</li>
+</ul>
+
+
+<p><strong>Default</strong>: BITStoreUpdateCheckWeekly</p><div class="warning"><p><strong>Warning:</strong> When setting this to <code>BITStoreUpdateCheckManually</code> you need to either
+invoke the update checking process yourself with <a href="#//api/name/checkForUpdate"><code>checkForUpdate</code></a> somehow, e.g. by
+proving an update check button for the user or integrating the Update View into your
+user interface.</p></div>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Constants/BITStoreUpdateSetting.html">BITStoreUpdateSetting</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/countryCode">@property countryCode</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/checkForUpdateOnLaunch">@property checkForUpdateOnLaunch</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/checkForUpdate">- checkForUpdate</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITStoreUpdateManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/countryCode" title="countryCode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/countryCode">&nbsp;&nbsp;countryCode</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Defines the store country the app is always available in, otherwise uses the users locale</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *countryCode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If this value is not defined, then it uses the device country if the current locale.</p>
+
+<p>If you are pre-defining a country and are releasing a new version on a specific date,
+it can happen that users get an alert but the update is not yet available in their country!</p>
+
+<p>But if a user downloaded the app from another appstore than the locale is set and the app is not
+available in the locales app store, then the user will never receive an update notification!</p>
+
+<p>More information about possible country codes is available here: <a href="http://en.wikipedia.org/wiki/ISO">http://en.wikipedia.org/wiki/ISO</a>_3166-1_alpha-2</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/updateSetting">@property updateSetting</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/checkForUpdateOnLaunch">@property checkForUpdateOnLaunch</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/checkForUpdate">- checkForUpdate</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITStoreUpdateManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/checkForUpdateOnLaunch" title="checkForUpdateOnLaunch"></a>
+	<h3 class="method-title"><code><a href="#//api/name/checkForUpdateOnLaunch">&nbsp;&nbsp;checkForUpdateOnLaunch</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Flag that determines whether the automatic update checks should be done.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, getter=isCheckingForUpdateOnLaunch) BOOL checkForUpdateOnLaunch</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If this is enabled the update checks will be performed automatically depending on the
+<a href="#//api/name/updateSetting"><code>updateSetting</code></a> property. If this is disabled the <a href="#//api/name/updateSetting"><code>updateSetting</code></a> property will have
+no effect, and checking for updates is totally up to be done by yourself.</p>
+
+<p><em>Default</em>: <em>YES</em></p><div class="warning"><p><strong>Warning:</strong> When setting this to <code>NO</code> you need to invoke update checks yourself!</p></div>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/updateSetting">@property updateSetting</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/countryCode">@property countryCode</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/checkForUpdate">- checkForUpdate</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITStoreUpdateManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="User Interface" name="task_User Interface"></a>
+						<h2 class="task-title">User Interface</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/updateUIEnabled" title="updateUIEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUIEnabled">&nbsp;&nbsp;updateUIEnabled</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Flag that determines if the integrated update alert should be used</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, getter=isUpdateUIEnabled) BOOL updateUIEnabled</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>If enabled, the integrated UIAlert based update notification will be used to inform
+the user about a new update being available in the App Store.</p>
+
+<p>If disabled, you need to implement the <a href="../Protocols/BITStoreUpdateManagerDelegate.html"><code>BITStoreUpdateManagerDelegate</code></a> protocol with
+the method <a href="../Protocols/BITStoreUpdateManagerDelegate.html#//api/name/detectedUpdateFromStoreUpdateManager:newVersion:storeURL:"><code>[BITStoreUpdateManagerDelegate detectedUpdateFromStoreUpdateManager:newVersion:storeURL:]</code></a>
+to be notified about new version and proceed yourself.
+The manager will consider this identical to an <code>Ignore</code> user action using the alert
+and not inform about this particular version any more, unless the app is updated
+and this very same version shows up at a later time again as a new version.</p>
+
+<p><em>Default</em>: <em>YES</em></p><div class="warning"><p><strong>Warning:</strong> If the HockeySDKResources bundle is missing in the application package, then the internal
+update alert is also disabled and be treated identical to manually disabling this
+property.</p></div>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/updateSetting">@property updateSetting</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITStoreUpdateManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						<a title="Manual update checking" name="task_Manual update checking"></a>
+						<h2 class="task-title">Manual update checking</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/checkForUpdate" title="checkForUpdate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/checkForUpdate">&ndash;&nbsp;checkForUpdate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Check for an update</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)checkForUpdate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>Call this to trigger a check if there is a new update available on the HockeyApp servers.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="#//api/name/updateSetting">@property updateSetting</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/countryCode">@property countryCode</a></p></code></li>
+					
+					<li><code><p><a href="#//api/name/checkForUpdateOnLaunch">@property checkForUpdateOnLaunch</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">BITStoreUpdateManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2017 Bit Stadium GmbH. All rights reserved. Updated: 2017-04-28</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
