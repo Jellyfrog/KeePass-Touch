@@ -175,6 +175,8 @@
 		89FC6ADE20A8AF6C003D469D /* blake2b.c in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6AD420A8AF6C003D469D /* blake2b.c */; };
 		89FC6ADF20A8AF6C003D469D /* argon2.c in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6AD620A8AF6C003D469D /* argon2.c */; };
 		89FC6AE020A8AF6C003D469D /* encoding.c in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6AD920A8AF6C003D469D /* encoding.c */; };
+		BC63DD4022F2B3DB0048911D /* WebDAVSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC63DD3F22F2B3DB0048911D /* WebDAVSelectViewController.m */; };
+		BC8CE34922F289DB00536B3A /* WebDAVAddServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8CE34822F289DB00536B3A /* WebDAVAddServerViewController.m */; };
 		F30FB8B73E2BBEE0949B4993 /* libPods-KeePass Touch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78111015A0A6122417F9DB68 /* libPods-KeePass Touch.a */; };
 /* End PBXBuildFile section */
 
@@ -484,6 +486,11 @@
 		89FC6AD820A8AF6C003D469D /* blake2-impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "blake2-impl.h"; sourceTree = "<group>"; };
 		89FC6AD920A8AF6C003D469D /* encoding.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = encoding.c; sourceTree = "<group>"; };
 		97F483DCB3CCE6A344FDCC09 /* Pods-KeePass Touch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeePass Touch.release.xcconfig"; path = "Pods/Target Support Files/Pods-KeePass Touch/Pods-KeePass Touch.release.xcconfig"; sourceTree = "<group>"; };
+		BC63DD3E22F2B3DB0048911D /* WebDAVSelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebDAVSelectViewController.h; sourceTree = "<group>"; };
+		BC63DD3F22F2B3DB0048911D /* WebDAVSelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebDAVSelectViewController.m; sourceTree = "<group>"; };
+		BC63DD4122F2F2DF0048911D /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
+		BC8CE34722F289DB00536B3A /* WebDAVAddServerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebDAVAddServerViewController.h; sourceTree = "<group>"; };
+		BC8CE34822F289DB00536B3A /* WebDAVAddServerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebDAVAddServerViewController.m; sourceTree = "<group>"; };
 		BDB0FF5E194C7C6F00C44DEF /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BDB0FF5F194C7C6F00C44DEF /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E6859D69A365801F5432293B /* Pods-KeePass Touch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeePass Touch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeePass Touch/Pods-KeePass Touch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -782,6 +789,7 @@
 		689DFFD813A4273F005EBD36 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC63DD4122F2F2DF0048911D /* AuthenticationServices.framework */,
 				89F3ACD41FC72FA0002B823D /* MobileCoreServices.framework */,
 				423564CD1DA3A55E0014A047 /* GoogleMobileAds.framework */,
 				423BA1721C09C5D000A36BD3 /* libxml2.tbd */,
@@ -838,6 +846,10 @@
 				897C50781FEAC15100C5EB5F /* FTPAddServerViewController.m */,
 				42993D211A7A479E0000D8E8 /* FTPSelectViewController.h */,
 				42993D221A7A479E0000D8E8 /* FTPSelectViewController.m */,
+				BC8CE34722F289DB00536B3A /* WebDAVAddServerViewController.h */,
+				BC8CE34822F289DB00536B3A /* WebDAVAddServerViewController.m */,
+				BC63DD3E22F2B3DB0048911D /* WebDAVSelectViewController.h */,
+				BC63DD3F22F2B3DB0048911D /* WebDAVSelectViewController.m */,
 				52C7FD7B18693D9900D498A2 /* GroupSearchController.h */,
 				52C7FD7C18693D9900D498A2 /* GroupSearchController.m */,
 				689D043013A42C81005EBD36 /* GroupViewController.h */,
@@ -1059,7 +1071,6 @@
 				689DFFD213A4273F005EBD36 /* Frameworks */,
 				689DFFD313A4273F005EBD36 /* Resources */,
 				89F3ACD61FC75F37002B823D /* ShellScript */,
-				091443B182D9B228FC602DD2 /* [CP] Embed Pods Frameworks */,
 				ADB7CE2EA5AB8FB7F1156EEE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -1170,21 +1181,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		091443B182D9B228FC602DD2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeePass Touch/Pods-KeePass Touch-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		59B47B4FB0FB7ECCAC6443C9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1222,7 +1218,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-KeePass Touch/Pods-KeePass Touch-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-KeePass Touch/Pods-KeePass Touch-resources.sh",
 				"${PODS_ROOT}/GCDWebServer/GCDWebUploader/GCDWebUploader.bundle",
 				"${PODS_ROOT}/TWMessageBarManager/Classes/Icons/icon-error.png",
 				"${PODS_ROOT}/TWMessageBarManager/Classes/Icons/icon-error@2x.png",
@@ -1243,7 +1239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KeePass Touch/Pods-KeePass Touch-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KeePass Touch/Pods-KeePass Touch-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1323,6 +1319,7 @@
 				68915A0B13A6F6C200A408B0 /* InfoBar.m in Sources */,
 				68A3E1AF13A8C9D1006881CA /* FormViewController.m in Sources */,
 				68A4E29A18711983003117A4 /* ImageFactory.m in Sources */,
+				BC63DD4022F2B3DB0048911D /* WebDAVSelectViewController.m in Sources */,
 				6876F67813B2D8F500A05C7A /* ImageSelectionViewController.m in Sources */,
 				8952DACA203B4CA200F318B9 /* ChaCha20InputStream.m in Sources */,
 				68D7564D186E4D8A001AFB82 /* WebViewController.m in Sources */,
@@ -1355,6 +1352,7 @@
 				89D477741EEC4DF600052EC6 /* DropboxManager.m in Sources */,
 				682D451A1603883900156830 /* Sha256OutputStream.m in Sources */,
 				68884F10186E1C5600C222D4 /* MasterPasswordFieldCell.m in Sources */,
+				BC8CE34922F289DB00536B3A /* WebDAVAddServerViewController.m in Sources */,
 				89FC6ADA20A8AF6C003D469D /* thread.c in Sources */,
 				685D9D951603F8EE00D739D3 /* Kdb3Utils.m in Sources */,
 				89D51DFC20551D9900D85B73 /* TwoFishCipher.m in Sources */,

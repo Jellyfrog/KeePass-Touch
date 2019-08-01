@@ -31,6 +31,8 @@
 
 #import "FTPAddServerViewController.h"
 #import "FTPSelectViewController.h"
+#import "WebDAVAddServerViewController.h"
+#import "WebDAVSelectViewController.h"
 
 #import <Crashlytics/Crashlytics.h>
 
@@ -228,6 +230,14 @@ enum {
     [ftpAlertAction setValue:[UIImage imageNamed:@"globe"] forKey:@"image"];
     [alertCon addAction:ftpAlertAction];
     
+    UIAlertAction *webdavAlertAction = [UIAlertAction actionWithTitle:@"WebDAV Sync"
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^( UIAlertAction *action ){
+                                                               [self webdavPressed];
+                                                           }];
+    [webdavAlertAction setValue:[UIImage imageNamed:@"globe"] forKey:@"image"];
+    [alertCon addAction:webdavAlertAction];
+    
     UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                        style:UIAlertActionStyleCancel
                                                      handler:nil];
@@ -337,6 +347,88 @@ enum {
                 fsvc.path = @"/";
                 fsvc.loadFilename = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:databaseRows == 0 ? SECTION_KEYFILE : SECTION_DATABASE]].textLabel.text;
                 UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:fsvc];
+                [self presentViewController:navi animated:YES completion:nil];
+                
+            }
+        }];
+        [alertCon addAction:uploadAction];
+    }
+    
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+    [alertCon addAction:cancelAction];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
+}
+
+// WebDAV Sync
+- (void)webdavPressed {
+    if(isUploading)
+    {
+        isUploading = NO;
+        [footerLabel removeFromSuperview];
+    }
+    if([webUploader isRunning])
+    {
+        UIImage* newImage = [UIImage imageNamed:@"sync"];
+        [syncButton setImage:newImage];
+        [webUploader stop];
+    }
+    
+    if([KeychainUtils stringForKey:@"kptwebdav_server" andServiceName:@"com.kptouch.webdavaccess"] == nil)
+    {
+        WebDAVAddServerViewController *wsvc = [[WebDAVAddServerViewController alloc] init];
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:wsvc];
+        [self presentViewController:navi animated:YES completion:nil];
+    }
+    else {
+        [self showWebDAVOptions];
+    }
+}
+
+- (void)showWebDAVOptions {
+    [Answers logCustomEventWithName:@"Sync - WebDAV"
+                   customAttributes:@{}];
+    NSInteger rowCount = [self.tableView numberOfRowsInSection:SECTION_DATABASE] + [self.tableView numberOfRowsInSection:SECTION_KEYFILE];
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    alertCon.modalPresentationStyle = UIModalPresentationPopover;
+    alertCon.popoverPresentationController.barButtonItem = syncButton;
+    UIAlertAction *downloadAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Download", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // Download WebDAV
+        WebDAVSelectViewController *wsvc = [[WebDAVSelectViewController alloc] initWithMode:WEBDAV_MODE_DOWNLOAD];
+        
+        NSString * path = [KeychainUtils stringForKey:@"kptwebdav_path" andServiceName:@"com.kptouch.webdavaccess"];
+        if(path == nil)
+            wsvc.path = @"/";
+        else
+            wsvc.path = path;
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:wsvc];
+        [self presentViewController:navi animated:YES completion:nil];
+    }];
+    [alertCon addAction:downloadAction];
+    
+    if(rowCount > 0)
+    {
+        UIAlertAction *uploadAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Upload", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            // Upload WebDAV
+            NSInteger databaseRows = [self.tableView numberOfRowsInSection:SECTION_DATABASE];
+            NSInteger keyFileRows = [self.tableView numberOfRowsInSection:SECTION_KEYFILE];
+            if( (databaseRows + keyFileRows) > 1 )
+            {
+                isUploading = YES;
+                [self.view addSubview:footerLabel];
+                footerLabel.text = NSLocalizedString(@"Choose Upload File...", nil);
+            }
+            else {
+                // sofort initialisieren mit Upload Database File
+                WebDAVSelectViewController *wsvc = [[WebDAVSelectViewController alloc] initWithMode:WEBDAV_MODE_UPLOAD];
+                NSString * path = [KeychainUtils stringForKey:@"kptwebdav_path" andServiceName:@"com.kptouch.webdavaccess"];
+                if(path == nil)
+                    wsvc.path = @"/";
+                else
+                    wsvc.path = path;
+                wsvc.loadFilename = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:databaseRows == 0 ? SECTION_KEYFILE : SECTION_DATABASE]].textLabel.text;
+                UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:wsvc];
                 [self presentViewController:navi animated:YES completion:nil];
                 
             }
