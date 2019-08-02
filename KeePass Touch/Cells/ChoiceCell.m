@@ -47,7 +47,15 @@
 
 - (void)setSelectedIndex:(NSInteger)selectedIdx {
     selectedIndex = selectedIdx;
-    self.detailTextLabel.text = [choices objectAtIndex:selectedIndex];
+    NSString * choice = [choices objectAtIndex:selectedIndex];
+    NSURL * choice_url = [NSURL URLWithString:choice];
+    if([choice_url isFileURL]) {
+        self.imageView.image = [UIImage imageNamed:@"cloudlink"];
+        self.detailTextLabel.text = [choice_url lastPathComponent];
+    } else {
+        self.imageView.image = nil;
+        self.detailTextLabel.text = choice;
+    }
 }
 
 - (NSString *)getSelectedItem {

@@ -33,8 +33,23 @@
                                            reason:NSLocalizedString(@"No password or keyfile specified", nil)
                                          userInfo:nil];
         }
-
+        
+        if (filename != nil) {
+            NSURL * fileurl = [NSURL URLWithString:filename];
+            if([fileurl isFileURL]) {
+                filename = [[fileurl.absoluteString
+                             stringByRemovingPercentEncoding] substringFromIndex:7];
+            }
+        }
         self.filename = filename;
+        
+        if (keyFile != nil) {
+            NSURL * keyfileurl = [NSURL URLWithString:keyFile];
+            if([keyfileurl isFileURL]) {
+                keyFile = [[keyfileurl.absoluteString
+                                stringByRemovingPercentEncoding] substringFromIndex:7];
+            }
+        }
 
         NSStringEncoding passwordEncoding = [[AppSettings sharedInstance] passwordEncoding];
         self.kdbPassword = [[KdbPassword alloc] initWithPassword:password

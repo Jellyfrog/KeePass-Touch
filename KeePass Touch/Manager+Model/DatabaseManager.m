@@ -132,11 +132,20 @@ static DatabaseManager *sharedInstance;
                                               
                                               // Get the absolute path to the database
                                               NSString *path = [documentsDirectory stringByAppendingPathComponent:self.selectedFilename];
+                                              NSURL * fileurl = [NSURL URLWithString:self.selectedFilename];
+                                              if([fileurl isFileURL])
+                                                  path = fileurl.absoluteString;
                                               
                                               // Get the absolute path to the keyfile
                                               NSString *keyFilePath = nil;
                                               if (keyFile != nil) {
-                                                  keyFilePath = [documentsDirectory stringByAppendingPathComponent:keyFile];
+                                                  NSURL * keyfileurl = [NSURL URLWithString:keyFile];
+                                                  if([keyfileurl isFileURL]) {
+                                                      keyFilePath = [[keyfileurl.absoluteString
+                                                                  stringByRemovingPercentEncoding] substringFromIndex:7];
+                                                  } else {
+                                                      keyFilePath = [documentsDirectory stringByAppendingPathComponent:keyFile];
+                                                  }
                                               }
                                               
                                               @try {
@@ -146,7 +155,7 @@ static DatabaseManager *sharedInstance;
                                                   appDelegate.databaseDocument = dd;
                                               } @catch (NSException *exception) {
                                                   // Ignore
-                                                  NSLog(@"Exception Database Manager");
+                                                  NSLog(@"Exception Database Manager: %@", exception);
                                                   [self.spinnerView removeFromSuperview];
                                               }
                                           });
@@ -169,6 +178,9 @@ static DatabaseManager *sharedInstance;
         else {
             // Get the absolute path to the database
             NSString *path = [documentsDirectory stringByAppendingPathComponent:self.selectedFilename];
+            NSURL * fileurl = [NSURL URLWithString:self.selectedFilename];
+            if([fileurl isFileURL])
+                path = fileurl.absoluteString;
             
             // Get the absolute path to the keyfile
             NSString *keyFilePath = nil;
@@ -205,7 +217,14 @@ static DatabaseManager *sharedInstance;
         };
         
         // Create a default keyfile name from the database name
-        keyFile = [[filename stringByDeletingPathExtension] stringByAppendingPathExtension:@"key"];
+        NSURL * filename_url = [NSURL URLWithString:filename];
+        if([filename_url isFileURL]) {
+            filename = [[[[filename_url.absoluteString
+                         stringByRemovingPercentEncoding] substringFromIndex:7]  stringByDeletingPathExtension] stringByAppendingPathExtension:@"key"];
+            keyFile = [[NSURL fileURLWithPath:filename] absoluteString];
+        } else {
+            keyFile = [[filename stringByDeletingPathExtension] stringByAppendingPathExtension:@"key"];
+        }
         
         // Select the keyfile if it's in the list
         NSInteger index = [passwordViewController.keyFileCell.choices indexOfObject:keyFile];
@@ -224,6 +243,10 @@ static DatabaseManager *sharedInstance;
 - (void)openDatabaseWithPasswordViewController:(PasswordViewController *)passwordViewController {
     NSString *documentsDirectory = [KeePassTouchAppDelegate documentsDirectory];
     NSString *path = [documentsDirectory stringByAppendingPathComponent:self.selectedFilename];
+    NSURL * fileurl = [NSURL URLWithString:self.selectedFilename];
+    if([fileurl isFileURL])
+        path = [[fileurl.absoluteString
+                 stringByRemovingPercentEncoding] substringFromIndex:7];
 
     // Get the password
     NSString *password = passwordViewController.masterPasswordFieldCell.textField.text;
@@ -240,8 +263,14 @@ static DatabaseManager *sharedInstance;
     // Get the absolute path to the keyfile
     NSString *keyFilePath = nil;
     if (keyFile != nil) {
-        NSString *documentsDirectory = [KeePassTouchAppDelegate documentsDirectory];
-        keyFilePath = [documentsDirectory stringByAppendingPathComponent:keyFile];
+        NSURL * keyfileurl = [NSURL URLWithString:keyFile];
+        if([keyfileurl isFileURL]) {
+            keyFilePath = [[keyfileurl.absoluteString
+                     stringByRemovingPercentEncoding] substringFromIndex:7];
+        } else {
+            NSString *documentsDirectory = [KeePassTouchAppDelegate documentsDirectory];
+            keyFilePath = [documentsDirectory stringByAppendingPathComponent:keyFile];
+        }
     }
     
     // Load the database

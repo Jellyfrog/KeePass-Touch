@@ -177,6 +177,8 @@
 		89FC6AE020A8AF6C003D469D /* encoding.c in Sources */ = {isa = PBXBuildFile; fileRef = 89FC6AD920A8AF6C003D469D /* encoding.c */; };
 		BC63DD4022F2B3DB0048911D /* WebDAVSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC63DD3F22F2B3DB0048911D /* WebDAVSelectViewController.m */; };
 		BC8CE34922F289DB00536B3A /* WebDAVAddServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8CE34822F289DB00536B3A /* WebDAVAddServerViewController.m */; };
+		BCB08C3E22F48667003659F1 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB08C3D22F48667003659F1 /* Icon.png */; };
+		BCB08C4022F48673003659F1 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB08C3F22F48673003659F1 /* Icon@2x.png */; };
 		F30FB8B73E2BBEE0949B4993 /* libPods-KeePass Touch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78111015A0A6122417F9DB68 /* libPods-KeePass Touch.a */; };
 /* End PBXBuildFile section */
 
@@ -491,6 +493,8 @@
 		BC63DD4122F2F2DF0048911D /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		BC8CE34722F289DB00536B3A /* WebDAVAddServerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebDAVAddServerViewController.h; sourceTree = "<group>"; };
 		BC8CE34822F289DB00536B3A /* WebDAVAddServerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebDAVAddServerViewController.m; sourceTree = "<group>"; };
+		BCB08C3D22F48667003659F1 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = "KeePass Touch/Images.xcassets/AppIcon.appiconset/Icon.png"; sourceTree = "<group>"; };
+		BCB08C3F22F48673003659F1 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "KeePass Touch/Images.xcassets/AppIcon.appiconset/Icon@2x.png"; sourceTree = "<group>"; };
 		BDB0FF5E194C7C6F00C44DEF /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BDB0FF5F194C7C6F00C44DEF /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E6859D69A365801F5432293B /* Pods-KeePass Touch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeePass Touch.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KeePass Touch/Pods-KeePass Touch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -753,6 +757,8 @@
 		689D041413A42B85005EBD36 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BCB08C3F22F48673003659F1 /* Icon@2x.png */,
+				BCB08C3D22F48667003659F1 /* Icon.png */,
 				689D021313A42B63005EBD36 /* help */,
 				522D8F9D17E35B0E00BCA329 /* Images.xcassets */,
 				529708AD14FEEFD3003547FB /* Andale Mono.ttf */,
@@ -1158,6 +1164,7 @@
 				52491D0E14D8F3FB00F8CBC8 /* de-itunes.html in Resources */,
 				52491D0F14D8F3FB00F8CBC8 /* de-keyfiles.html in Resources */,
 				52491D1014D8F3FB00F8CBC8 /* de-safariemail.html in Resources */,
+				BCB08C3E22F48667003659F1 /* Icon.png in Resources */,
 				52E43F4C15B59C890029F979 /* ru-createdb.html in Resources */,
 				52E43F4D15B59C890029F979 /* ru-dropbox.html in Resources */,
 				52E43F4E15B59C890029F979 /* ru-itunes.html in Resources */,
@@ -1171,6 +1178,7 @@
 				52E3342E161E0F310049F4A1 /* stretchme@2x.png in Resources */,
 				4E8C169316B3E871004195A1 /* fr-createdb.html in Resources */,
 				4E8C169416B3E871004195A1 /* fr-dropbox.html in Resources */,
+				BCB08C4022F48673003659F1 /* Icon@2x.png in Resources */,
 				42BEFB651A8287B70049C325 /* de-touchid.html in Resources */,
 				4E8C169516B3E871004195A1 /* fr-itunes.html in Resources */,
 				4E8C169616B3E871004195A1 /* fr-keyfiles.html in Resources */,
