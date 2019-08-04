@@ -16,6 +16,7 @@ pod 'GCDWebServer/WebUploader', '~> 3.0'
 pod 'Fabric'
 pod 'Crashlytics'
 
+pod 'LEOWebDAV', :git => 'https://github.com/hwiorn/leowebdav.git'
 pod 'FTPKit', :git => 'https://github.com/aljlue/FTPKit.git'
 
 end

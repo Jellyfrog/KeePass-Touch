@@ -11,8 +11,8 @@
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
 			<array>
-				<string>icon.png</string>
-				<string>icon@2x.png</string>
+				<string>Icon.png</string>
+				<string>Icon@2x.png</string>
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>KeePass 2.x Database</string>
@@ -28,8 +28,8 @@
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
 			<array>
-				<string>icon.png</string>
-				<string>icon@2x.png</string>
+				<string>Icon.png</string>
+				<string>Icon@2x.png</string>
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>KeePass 1.x Database</string>
@@ -45,8 +45,8 @@
 		<dict>
 			<key>CFBundleTypeIconFiles</key>
 			<array>
-				<string>icon.png</string>
-				<string>icon@2x.png</string>
+				<string>Icon.png</string>
+				<string>Icon@2x.png</string>
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>KeePass Keyfile</string>
@@ -238,8 +238,14 @@
 			<string>com.kptouch.kdb</string>
 		</dict>
 		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
 			<key>UTTypeDescription</key>
 			<string>KeePass KeyFile</string>
+			<key>UTTypeIconFiles</key>
+			<array/>
 			<key>UTTypeIdentifier</key>
 			<string>com.kptouch.key</string>
 		</dict>

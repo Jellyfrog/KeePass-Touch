@@ -96,8 +96,11 @@ enum {
 
 enum {
     ROW_FTP_RESET,
+    ROW_FTP_WEBDAV,
     ROW_FTP_DROPBOX,
     ROW_FTP_DROPBOX_AUTO_SYNC,
+    //ROW_FTP_FTP_AUTO_SYNC,
+    //ROW_FTP_WEBDAV_AUTO_SYNC,
     ROW_FTP_NUMBER
 };
 
@@ -529,10 +532,14 @@ enum {
                 return dbCell;
             }
             else if(indexPath.row == ROW_FTP_DROPBOX_AUTO_SYNC) {
-                SwitchCell *dbAutoSyncSwitchCell = [[SwitchCell alloc] initWithLabel:NSLocalizedString(@"Auto Sync", nil)];
+                SwitchCell *dbAutoSyncSwitchCell = [[SwitchCell alloc] initWithLabel:NSLocalizedString(@"DropBox Auto Sync", nil)];
                 dbAutoSyncSwitchCell.switchControl.on = [[NSUserDefaults standardUserDefaults] boolForKey:@"DBAutoSync"];
-                [dbAutoSyncSwitchCell.switchControl addTarget:self action:@selector(toggleAutoSync:) forControlEvents:UIControlEventValueChanged];
+                [dbAutoSyncSwitchCell.switchControl addTarget:self action:@selector(toggleDropBoxAutoSync:) forControlEvents:UIControlEventValueChanged];
                 return dbAutoSyncSwitchCell;
+            }else if(indexPath.row == ROW_FTP_WEBDAV) {
+                UITableViewCell *dbWebDAVCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+                dbWebDAVCell.textLabel.text = NSLocalizedString(@"Reset WebDAV data", nil);
+                return dbWebDAVCell;
             }
             UITableViewCell *ftpCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
             ftpCell.textLabel.text = NSLocalizedString(@"Reset FTP data", nil);
@@ -634,6 +641,13 @@ enum {
             // nothing to do here, as the switch handles it
             [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
             return;
+        }
+        else if(indexPath.row == ROW_FTP_WEBDAV)
+        {
+            [KeychainUtils deleteStringForKey:@"kptwebdav_server" andServiceName:@"com.kptouch.webdavaccess"];
+            [KeychainUtils deleteStringForKey:@"kptwebdav_username" andServiceName:@"com.kptouch.webdavaccess"];
+            [KeychainUtils deleteStringForKey:@"kptwebdav_password" andServiceName:@"com.kptouch.webdavaccess"];
+            [KeychainUtils deleteStringForKey:@"kptwebdav_path" andServiceName:@"com.kptouch.webdavaccess"];
         }
         else
         {
@@ -754,7 +768,7 @@ enum {
     [self updateEnabledControls];
 }
 
-- (void)toggleAutoSync:(UISwitch *)sender {
+- (void)toggleDropBoxAutoSync:(UISwitch *)sender {
     [[NSUserDefaults standardUserDefaults] setBool:sender.on forKey:@"DBAutoSync"];
     NSLog(@"toggle Auto Sync is now %@", [[NSUserDefaults standardUserDefaults] boolForKey:@"DBAutoSync"] ? @"YES" : @"NO");
 }

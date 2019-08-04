@@ -41,7 +41,15 @@
     }
     
     // Configure the cell
-    cell.textLabel.text = [items objectAtIndex:indexPath.row];
+    NSString * item = [items objectAtIndex:indexPath.row];
+    NSURL * item_url = [NSURL URLWithString:item];
+    if([item_url isFileURL]) {
+        cell.textLabel.text = [item_url lastPathComponent];
+        cell.imageView.image = [UIImage imageNamed:@"cloudlink"];
+    } else {
+        cell.textLabel.text = item;
+        cell.imageView.image = nil;
+    }
     
     if (indexPath.row == selectedIndex) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;

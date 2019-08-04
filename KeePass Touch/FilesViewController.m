@@ -31,6 +31,8 @@
 
 #import "FTPAddServerViewController.h"
 #import "FTPSelectViewController.h"
+#import "WebDAVAddServerViewController.h"
+#import "WebDAVSelectViewController.h"
 
 #import <Crashlytics/Crashlytics.h>
 
@@ -228,6 +230,22 @@ enum {
     [ftpAlertAction setValue:[UIImage imageNamed:@"globe"] forKey:@"image"];
     [alertCon addAction:ftpAlertAction];
     
+    UIAlertAction *webdavAction = [UIAlertAction actionWithTitle:@"WebDAV Sync"
+                                                             style:UIAlertActionStyleDefault
+                                                           handler:^( UIAlertAction *action ){
+                                                               [self webdavPressed];
+                                                           }];
+    [webdavAction setValue:[UIImage imageNamed:@"dav"] forKey:@"image"];
+    [alertCon addAction:webdavAction];
+    
+    UIAlertAction *cloudAction = [UIAlertAction actionWithTitle:@"Document Files"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^( UIAlertAction *action ){
+                                                             [self cloudPressed];
+                                                         }];
+    [cloudAction setValue:[UIImage imageNamed:@"cloud"] forKey:@"image"];
+    [alertCon addAction:cloudAction];
+    
     UIAlertAction *cancelAlertAction = [UIAlertAction actionWithTitle:@"Cancel"
                                                        style:UIAlertActionStyleCancel
                                                      handler:nil];
@@ -351,6 +369,96 @@ enum {
     [self presentViewController:alertCon animated:YES completion:nil];
 }
 
+// WebDAV Sync
+- (void)webdavPressed {
+    if(isUploading)
+    {
+        isUploading = NO;
+        [footerLabel removeFromSuperview];
+    }
+    if([webUploader isRunning])
+    {
+        UIImage* newImage = [UIImage imageNamed:@"sync"];
+        [syncButton setImage:newImage];
+        [webUploader stop];
+    }
+    
+    if([KeychainUtils stringForKey:@"kptwebdav_server" andServiceName:@"com.kptouch.webdavaccess"] == nil)
+    {
+        WebDAVAddServerViewController *wsvc = [[WebDAVAddServerViewController alloc] init];
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:wsvc];
+        [self presentViewController:navi animated:YES completion:nil];
+    }
+    else {
+        [self showWebDAVOptions];
+    }
+}
+
+- (void)showWebDAVOptions {
+    [Answers logCustomEventWithName:@"Sync - WebDAV"
+                   customAttributes:@{}];
+    NSInteger rowCount = [self.tableView numberOfRowsInSection:SECTION_DATABASE] + [self.tableView numberOfRowsInSection:SECTION_KEYFILE];
+    UIAlertController *alertCon = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    alertCon.modalPresentationStyle = UIModalPresentationPopover;
+    alertCon.popoverPresentationController.barButtonItem = syncButton;
+    UIAlertAction *downloadAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Download", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // Download WebDAV
+        WebDAVSelectViewController *wsvc = [[WebDAVSelectViewController alloc] initWithMode:WEBDAV_MODE_DOWNLOAD];
+        
+        NSString * path = [KeychainUtils stringForKey:@"kptwebdav_path" andServiceName:@"com.kptouch.webdavaccess"];
+        if(path == nil)
+            wsvc.path = @"/";
+        else
+            wsvc.path = path;
+        UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:wsvc];
+        [self presentViewController:navi animated:YES completion:nil];
+    }];
+    [alertCon addAction:downloadAction];
+    
+    if(rowCount > 0)
+    {
+        UIAlertAction *uploadAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Upload", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            // Upload WebDAV
+            NSInteger databaseRows = [self.tableView numberOfRowsInSection:SECTION_DATABASE];
+            NSInteger keyFileRows = [self.tableView numberOfRowsInSection:SECTION_KEYFILE];
+            if( (databaseRows + keyFileRows) > 1 )
+            {
+                isUploading = YES;
+                [self.view addSubview:footerLabel];
+                footerLabel.text = NSLocalizedString(@"Choose Upload File...", nil);
+            }
+            else {
+                // sofort initialisieren mit Upload Database File
+                WebDAVSelectViewController *wsvc = [[WebDAVSelectViewController alloc] initWithMode:WEBDAV_MODE_UPLOAD];
+                NSString * path = [KeychainUtils stringForKey:@"kptwebdav_path" andServiceName:@"com.kptouch.webdavaccess"];
+                if(path == nil)
+                    wsvc.path = @"/";
+                else
+                    wsvc.path = path;
+                wsvc.loadFilename = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:databaseRows == 0 ? SECTION_KEYFILE : SECTION_DATABASE]].textLabel.text;
+                UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:wsvc];
+                [self presentViewController:navi animated:YES completion:nil];
+                
+            }
+        }];
+        [alertCon addAction:uploadAction];
+    }
+    
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+    [alertCon addAction:cancelAction];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
+}
+
+- (void) cloudPressed {
+    UIDocumentMenuViewController *documentMenuSelectCon = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[@"com.kptouch.kdbx",@"com.kptouch.kdb", @"com.kptouch.key", @"com.apple.iwork.keynote.key"] inMode:UIDocumentPickerModeOpen];
+    documentMenuSelectCon.modalPresentationStyle = UIModalPresentationPopover;
+    documentMenuSelectCon.popoverPresentationController.barButtonItem = addButton;
+    documentMenuSelectCon.delegate = self;
+    [self presentViewController:documentMenuSelectCon animated:YES completion:nil];
+}
+
 - (void)displayInfoPage {
     if (filesInfoView == nil) {
         filesInfoView = [[FilesInfoView alloc] initWithFrame:self.view.bounds];
@@ -407,6 +515,13 @@ enum {
     
     _databaseFiles = [NSMutableArray arrayWithArray:databaseFilenames];
     keyFiles = [NSMutableArray arrayWithArray:keyFilenames];
+    
+    NSMutableArray * cloudFileUrls = [[NSUserDefaults standardUserDefaults] objectForKey:@"CloudFileUrls"];
+    NSArray *cloudDatabaseFiles = [cloudFileUrls filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"(self ENDSWITH[c] '.kdb') OR (self ENDSWITH[c] '.kdbx')"]];
+    NSArray * cloudKeyFiles = [cloudFileUrls filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"!((self ENDSWITH[c] '.kdb') OR (self ENDSWITH[c] '.kdbx'))"]];
+    
+    [_databaseFiles addObjectsFromArray:cloudDatabaseFiles];
+    [keyFiles addObjectsFromArray:cloudKeyFiles];
 }
 
 - (void)renameDatabase:(TextEntryController *)textEntryController {
@@ -487,7 +602,7 @@ enum {
                                                              style:UIAlertActionStyleDefault
                                                            handler:^( UIAlertAction *action ){
                                                                
-                                                               UIDocumentMenuViewController *documentMenuSelectCon = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[@"com.kptouch.kdbx",@"com.kptouch.kdb", @"com.kptouch.key"] inMode:UIDocumentPickerModeImport];
+                                                               UIDocumentMenuViewController *documentMenuSelectCon = [[UIDocumentMenuViewController alloc] initWithDocumentTypes:@[@"com.kptouch.kdbx",@"com.kptouch.kdb", @"com.kptouch.key", @"com.apple.iwork.keynote.key"] inMode:UIDocumentPickerModeImport];
                                                                documentMenuSelectCon.modalPresentationStyle = UIModalPresentationPopover;
                                                                documentMenuSelectCon.popoverPresentationController.barButtonItem = addButton;
                                                                documentMenuSelectCon.delegate = self;
@@ -512,8 +627,10 @@ enum {
 
 - (void)documentMenu:(UIDocumentMenuViewController *)documentMenu didPickDocumentPicker:(UIDocumentPickerViewController *)documentPicker {
     documentPicker.delegate = self;
-    [Answers logCustomEventWithName:@"Database - Import"
-                   customAttributes:@{}];
+    if(documentPicker.documentPickerMode == UIDocumentPickerModeImport) {
+        [Answers logCustomEventWithName:@"Database - Import"
+                       customAttributes:@{}];
+    }
     [self presentViewController:documentPicker animated:YES completion:nil];
 }
 
@@ -521,22 +638,50 @@ enum {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     NSString *localFilePath = [[KeePassTouchAppDelegate documentsDirectory] stringByAppendingPathComponent:url.lastPathComponent];
-    if([fileManager fileExistsAtPath:localFilePath])
-    {
-        [fileManager removeItemAtPath:localFilePath error:&error];
-        if(error) {
-            // remove file at path error
+
+    if(controller.documentPickerMode == UIDocumentPickerModeImport) {
+        if([fileManager fileExistsAtPath:localFilePath])
+        {
+            [fileManager removeItemAtPath:localFilePath error:&error];
+            if(error) {
+                // remove file at path error
+                [self showErrorMessage:error.localizedDescription];
+            }
+            
+        }
+        [fileManager copyItemAtPath:url.path toPath:localFilePath error:&error];
+        if(error)
+        {
             [self showErrorMessage:error.localizedDescription];
         }
-       
+        else
+            [self reloadTableViewData];
+    } else if(controller.documentPickerMode == UIDocumentPickerModeOpen) {
+        BOOL isAccess = [url startAccessingSecurityScopedResource];
+        if(!isAccess) {
+            [self showErrorMessage:NSLocalizedString(@"Access file is not permitted", nil)];
+            return;
+        }
+        
+        BOOL same_url = NO;
+        NSMutableArray * cloudFileUrls = [[[NSUserDefaults standardUserDefaults] objectForKey:@"CloudFileUrls"] mutableCopy];
+        for(NSURL * cloud_url in cloudFileUrls) {
+            if([cloud_url isEqual:url.absoluteString])
+                same_url = YES;
+        }
+        
+        if(!same_url) {
+            if(cloudFileUrls == nil)
+                cloudFileUrls = [NSMutableArray arrayWithCapacity:50];
+            
+            [cloudFileUrls addObject:url.absoluteString];
+            [[NSUserDefaults standardUserDefaults] setObject:cloudFileUrls forKey:@"CloudFileUrls"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [self reloadTableViewData];
+        }
+        
+        [url stopAccessingSecurityScopedResource];
     }
-    [fileManager copyItemAtPath:url.path toPath:localFilePath error:&error];
-    if(error)
-    {
-        [self showErrorMessage:error.localizedDescription];
-    }
-    else
-        [self reloadTableViewData];
 }
 
 - (void)helpPressed {
@@ -722,18 +867,35 @@ enum {
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
+   
     
+    NSURL * filename_url = nil;
     // Configure the cell
     switch (indexPath.section) {
         case SECTION_DATABASE:
             filename = [_databaseFiles objectAtIndex:indexPath.row];
-            cell.textLabel.text = filename;
+            filename_url = [NSURL URLWithString: filename];
+            if(filename_url.isFileURL) {
+                cell.imageView.image = [UIImage imageNamed:@"cloudlink"];
+                cell.textLabel.text = [filename_url lastPathComponent];
+            } else {
+                cell.imageView.image = nil;
+                cell.textLabel.text = filename;
+            }
             cell.textLabel.textColor = [UIColor blackColor];
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             break;
         case SECTION_KEYFILE:
             filename = [keyFiles objectAtIndex:indexPath.row];
-            cell.textLabel.text = filename;
+            filename_url = [NSURL URLWithString: filename];
+            if(filename_url.isFileURL) {
+                cell.imageView.image = [UIImage imageNamed:@"cloudlink"];
+                cell.textLabel.text = [filename_url lastPathComponent];
+            } else {
+                cell.imageView.image = nil;
+                cell.textLabel.text = filename;
+            }
+            cell.textLabel.textColor = [UIColor blackColor];
             cell.textLabel.textColor = [UIColor grayColor];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
@@ -744,10 +906,16 @@ enum {
     // Retrieve the Document directory
     NSString *documentsDirectory = [KeePassTouchAppDelegate documentsDirectory];
     NSString *path = [documentsDirectory stringByAppendingPathComponent:filename];
+    if ([filename_url isFileURL])
+        path = [filename_url absoluteString];
 
     // Get the file's modification date
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSDate *modificationDate = [[fileManager attributesOfItemAtPath:path error:nil] fileModificationDate];
+    NSString * clean_path = path;
+    if([filename_url isFileURL])
+        clean_path = [[filename_url.absoluteString
+                 stringByRemovingPercentEncoding] substringFromIndex:7];
+    NSDate *modificationDate = [[fileManager attributesOfItemAtPath:clean_path error:nil] fileModificationDate];
 
     // Format the last modified time as the subtitle of the cell
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -781,16 +949,27 @@ enum {
     }
     
     
+    NSString * filename;
+    NSURL * filename_url;
     switch (indexPath.section) {
         // Database file section
         case SECTION_DATABASE:
             if (self.editing == NO) {
                 // Load the database
-                if(_databaseFiles != nil && indexPath.row < _databaseFiles.count )
-                    [[DatabaseManager sharedInstance] openDatabaseDocument:[_databaseFiles objectAtIndex:indexPath.row] animated:YES];
-                else
+                if(_databaseFiles != nil && indexPath.row < _databaseFiles.count ) {
+                    filename = [_databaseFiles objectAtIndex:indexPath.row];
+                    [[DatabaseManager sharedInstance] openDatabaseDocument:filename animated:YES];
+                } else {
                     [self showErrorMessage:NSLocalizedString(@"Invalid database row", nil)];
+                }
             } else {
+                filename = [_databaseFiles objectAtIndex:indexPath.row];
+                filename_url = [NSURL URLWithString:filename];
+                if([filename_url isFileURL]) {
+                    //Rename is not supported on cloud.
+                    break;
+                }
+                
                 TextEntryController *textEntryController = [[TextEntryController alloc] init];
                 textEntryController.title = NSLocalizedString(@"Rename", nil);
                 textEntryController.headerTitle = NSLocalizedString(@"Database Name", nil);
@@ -823,19 +1002,43 @@ enum {
         return;
     }
 
+    NSURL * filename_url;
+    NSMutableArray * cloudFileUrls;
     NSString *filename;
     switch (indexPath.section) {
         case SECTION_DATABASE:
+            filename = [_databaseFiles objectAtIndex:indexPath.row];
+            
             filename = [[_databaseFiles objectAtIndex:indexPath.row] copy];
-            [_databaseFiles removeObject:filename];
+            filename_url = [NSURL URLWithString: filename];
+            if([filename_url isFileURL]) {
+                [_databaseFiles removeObject:filename_url.absoluteString];
+                cloudFileUrls = [[[NSUserDefaults standardUserDefaults] objectForKey:@"CloudFileUrls"] mutableCopy];
 
+                [cloudFileUrls removeObject:filename];
+                [[NSUserDefaults standardUserDefaults] setObject:cloudFileUrls forKey:@"CloudFileUrls"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            } else {
+                [_databaseFiles removeObject:filename];
+            }
+            
             // Delete the keychain entries for the old filename
             [KeychainUtils deleteStringForKey:filename andServiceName:@"com.kptouch.passwords"];
             [KeychainUtils deleteStringForKey:filename andServiceName:@"com.kptouch.keychains"];
             break;
         case SECTION_KEYFILE:
             filename = [[keyFiles objectAtIndex:indexPath.row] copy];
-            [keyFiles removeObject:filename];
+            filename_url = [NSURL URLWithString: filename];
+            if([filename_url isFileURL]) {
+                [keyFiles removeObject:filename_url.absoluteString];
+                cloudFileUrls = [[[NSUserDefaults standardUserDefaults] objectForKey:@"CloudFileUrls"] mutableCopy];
+                
+                [cloudFileUrls removeObject:filename];
+                [[NSUserDefaults standardUserDefaults] setObject:cloudFileUrls forKey:@"CloudFileUrls"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            } else {
+                [keyFiles removeObject:filename];
+            }
             break;
         default:
             return;
@@ -851,8 +1054,10 @@ enum {
     }
     
     // Delete the file
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    [fileManager removeItemAtPath:path error:nil];
+    if(![filename_url isFileURL]) {
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager removeItemAtPath:path error:nil];
+    }
     
     // Update the table
 //#error swipe to delete fail here (iOS 11 vermutlich)
